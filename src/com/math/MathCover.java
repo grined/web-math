@@ -774,12 +774,9 @@ public class MathCover
 		{
 			for (int l=0; l<8*n+4; l++)
 			{
-				if ((Math.abs(coeff.getEntry(j,l)-MathCoverTest.test[j][l]))<0.0001)
-				{
-					System.out.print(j+"  "+l);
-					return;
-				}
+				System.out.print(coeff.getEntry(j,l)+"  ");
 			}
+			System.out.println();
 		}
 	}
 	
