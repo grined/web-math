@@ -1,37 +1,21 @@
 package com.first_task.web_math;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
-
 import com.gui.GraphicsDraw;
-import com.utils.math.Complex;
 import com.vaadin.Application;
-import com.vaadin.data.validator.RegexpValidator;
-import com.vaadin.terminal.PaintException;
-import com.vaadin.terminal.PaintTarget;
-import com.vaadin.terminal.Resource;
-import com.vaadin.terminal.Paintable.RepaintRequestListener;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Component.Listener;
-import com.vaadin.ui.ComponentContainer.ComponentAttachListener;
-import com.vaadin.ui.ComponentContainer.ComponentDetachListener;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 public class Web_mathApplication extends Application 
 {
 	private static String ERR_COMPLEX = "Enter complex value";
+	Panel mainPanel = new Panel();
+	
 	Button naviMain = 		new Button("Main");
 	Button naviExample = 	new Button("Example");
 	Button naviContacts = 	new Button("Contacts");
@@ -40,6 +24,29 @@ public class Web_mathApplication extends Application
 	TextField tfE2 = new TextField("E2");
 	TextField tfE3 = new TextField("E3");
 
+	TextField tfnu1 = new TextField("nu1");
+	TextField tfnu2 = new TextField("nu2");
+	TextField tfnu3 = new TextField("nu3");
+
+	TextField tfa1 = new TextField("a1");
+	TextField tfa2 = new TextField("a2");
+	TextField tfa3 = new TextField("a3");
+	
+	TextField tfK1 = new TextField("K1");
+	TextField tfK2 = new TextField("K2");
+	TextField tfK3 = new TextField("K3");
+	
+	TextField tfk= new TextField("k");
+	TextField tfhp= new TextField("hp");
+	TextField tfn= new TextField("n");
+	TextField tfT01= new TextField("T01");
+	TextField tfT02= new TextField("T02");
+	
+	TextField tfH= new TextField("H (use ';' )");
+	TextField tfh= new TextField("h (use ';' )");
+	
+	
+	
 	
 	Button btn = new Button("Press me");
 	Label label = new Label("Hello Vaadin user");
@@ -80,13 +87,17 @@ public class Web_mathApplication extends Application
 		mainWindow.setCaption("Web Math Application");
 		setMainWindow(mainWindow);
 		
+		mainWindow.addComponent(mainPanel);
+//		mainWindow.setSizeUndefined();
+		mainPanel.setScrollable(true);
+//		mainPanel.setSizeFull();
+		
 		AbsoluteLayout mainLayout = new AbsoluteLayout();
-		mainLayout.setImmediate(false);
+		mainLayout.setSizeFull();
 		mainLayout.setWidth("100%");
 		mainLayout.setHeight("100%");
-		mainLayout.setMargin(false);
 				
-		mainWindow.setContent(mainLayout);
+		mainPanel.addComponent(mainLayout);
 		// Navi
 		AbsoluteLayout layNavi = new AbsoluteLayout();
 		mainLayout.addComponent(layNavi, xyCSS(200,100));
@@ -106,14 +117,18 @@ public class Web_mathApplication extends Application
 
 		int xm = 20, ym=20;
 		layMath.addComponent(new Label("Enter values:"),xyCSS(xm,ym));
-		tfE1.setWidth("80px");
-		tfE2.setWidth("80px");
-		tfE3.setWidth("80px");
 		
 		layMath.addComponent(tfE1,xyCSS(xm,ym+30));
 		layMath.addComponent(tfE2,xyCSS(xm+100,ym+30));
 		layMath.addComponent(tfE3,xyCSS(xm+200,ym+30));
 		
+//		for ( it: layMath.getComponentIterator())
+//		{
+//			
+//		}
+		tfE1.setWidth("80px");
+		tfE2.setWidth("80px");
+		tfE3.setWidth("80px");
 		
 //		vl.addComponent(label);
 //		vl.addComponent(fld);
